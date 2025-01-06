@@ -22,6 +22,14 @@ export default function Layout() {
       }}
     >
       <Stack.Screen name="index" />
+      <Stack.Screen
+        name="plants/[plantId]"
+        options={{
+          title: "",
+          headerBackVisible: false,
+          headerTintColor: theme.colorBlack,
+        }}
+      />
     </Stack>
   );
 }
