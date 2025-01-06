@@ -1,4 +1,11 @@
-import { View, Text, StyleSheet, TextInput, Alert } from "react-native";
+import {
+  Text,
+  StyleSheet,
+  TextInput,
+  Alert,
+  TouchableOpacity,
+  Platform,
+} from "react-native";
 import { theme } from "@/theme";
 import { PlantlyImage } from "@/components/PlantlyImage";
 import { useState } from "react";
@@ -6,14 +13,33 @@ import { PlantlyButton } from "@/components/PlantlyButton";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { usePlantStore } from "@/store/plantStore";
 import { useRouter } from "expo-router";
+import * as ImagePicker from "expo-image-picker";
 
 export default function NewScreen() {
   const router = useRouter();
 
   const [name, setName] = useState<string>();
   const [days, setDays] = useState<string>();
+  const [imageUri, setImageUri] = useState<string>();
 
   const addPlant = usePlantStore((state) => state.addPlant);
+
+  const handleChooseImage = async () => {
+    if (Platform.OS === "web") {
+      return;
+    }
+
+    const result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ["images", "livePhotos"],
+      allowsEditing: true,
+      aspect: [1, 1],
+      quality: 1,
+    });
+
+    if (!result.canceled) {
+      setImageUri(result.assets[0].uri);
+    }
+  };
 
   const handleSubmit = () => {
     if (!name) {
@@ -34,7 +60,7 @@ export default function NewScreen() {
       );
     }
 
-    addPlant(name, Number(days));
+    addPlant(name, Number(days), imageUri);
     router.replace("/");
   };
 
@@ -44,9 +70,13 @@ export default function NewScreen() {
       contentContainerStyle={styles.contentContainer}
       keyboardShouldPersistTaps="handled"
     >
-      <View style={styles.centered}>
-        <PlantlyImage />
-      </View>
+      <TouchableOpacity
+        onPress={handleChooseImage}
+        activeOpacity={0.8}
+        style={styles.centered}
+      >
+        <PlantlyImage imageUri={imageUri} />
+      </TouchableOpacity>
       <Text style={styles.label}>Name</Text>
       <TextInput
         value={name}
@@ -92,5 +122,6 @@ const styles = StyleSheet.create({
   },
   centered: {
     alignItems: "center",
+    marginBottom: 24,
   },
 });
