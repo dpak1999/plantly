@@ -1029,7 +1029,7 @@
     resolve-from "^5.0.0"
     semver "^7.6.0"
 
-"@expo/image-utils@^0.6.0":
+"@expo/image-utils@^0.6.0", "@expo/image-utils@~0.6.3":
   version "0.6.3"
   resolved "https://registry.yarnpkg.com/@expo/image-utils/-/image-utils-0.6.3.tgz#89c744460beefc686989b969121357bbd5520c8a"
   integrity sha512-v/JbCKBrHeudxn1gN1TgfPE/pWJSlLPrl29uXJBgrJFQVkViQvUHQNDhaS+UEa9wYI5HHh7XYmtzAehyG4L+GA==
@@ -3736,6 +3736,15 @@ expo-modules-core@2.1.2:
   integrity sha512-0OhMU5S8zf9c/CRh1MwiXfOInI9wzz6yiIh5RuR/9J7N6xHRum68hInsPbaSc1UQpo08ZZLM4MPsbpoNRUoqIg==
   dependencies:
     invariant "^2.2.4"
+
+expo-quick-actions@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/expo-quick-actions/-/expo-quick-actions-4.0.1.tgz#f621d5381615c306a319e7e5cf1d869562d3efaf"
+  integrity sha512-EDlKuLsGY8JbW9HT3r5xR7/YA03yeoiHiWn0b/QD81Rew9l2rMlELTfj4aY/O/nlsSurmQ4lxYuit4gUZSpSuA==
+  dependencies:
+    "@expo/image-utils" "~0.6.3"
+    schema-utils "^4.2.0"
+    sf-symbols-typescript "^2.0.0"
 
 expo-router@~4.0.15:
   version "4.0.15"
@@ -6644,7 +6653,7 @@ scheduler@^0.23.2:
   dependencies:
     loose-envify "^1.1.0"
 
-schema-utils@^4.0.1:
+schema-utils@^4.0.1, schema-utils@^4.2.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/schema-utils/-/schema-utils-4.3.0.tgz#3b669f04f71ff2dfb5aba7ce2d5a9d79b35622c0"
   integrity sha512-Gf9qqc58SpCA/xdziiHz35F4GNIWYWZrEshUc/G/r5BnLph6xpKuLeoJoQuj5WfBIx/eQLf+hmVPYHaxJu7V2g==
@@ -6780,6 +6789,11 @@ setprototypeof@1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/setprototypeof/-/setprototypeof-1.2.0.tgz#66c9a24a73f9fc28cbe66b09fed3d33dcaf1b424"
   integrity sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==
+
+sf-symbols-typescript@^2.0.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/sf-symbols-typescript/-/sf-symbols-typescript-2.1.0.tgz#50a2d7b36edd6809606f0b0a36322fc1fdd7cfde"
+  integrity sha512-ezT7gu/SHTPIOEEoG6TF+O0m5eewl0ZDAO4AtdBi5HjsrUI6JdCG17+Q8+aKp0heM06wZKApRCn5olNbs0Wb/A==
 
 shallow-clone@^3.0.0:
   version "3.0.1"
